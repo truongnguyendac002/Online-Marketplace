@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 from item.models import *
 from .forms import SignupForm
 # Create your views here.
@@ -15,6 +16,11 @@ def index(request):
 
 def contact(request):
     return render(request, 'core/contact.html')
+
+def logout_view(request):
+    logout(request)
+    
+    return redirect('core:index')
 
 def signup(request):
     if request.method == 'POST':
