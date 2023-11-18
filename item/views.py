@@ -84,7 +84,8 @@ def edit(request, pk):
 def wishlist(request):
     wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
     
-    items = wishlist.items.all()
+    items = wishlist.items.all().filter(is_sold = False)
+    wishlist.items.set(items)
     
     return render(request, 'item/wishlist.html', {
         'items': items

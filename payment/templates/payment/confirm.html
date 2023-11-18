@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %}Payment{% endblock title %}
+
+
+{% block content %}
+    <div class="flex">
+        <div >
+            <h1 class="pt-4">{{message}}</h1>
+        </div>
+        <div >
+            <a href="{% url "payment:accept_funds" wallet.id %}" class="inline-block ml-4 mb-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Yes</a>
+            <a href="{% url "payment:refuse_funds" %}" class="inline-block ml-4 mb-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white hover:bg-red-700 rounded-xl">No</a>
+        </div>
+    </div>
+
+{% endblock content %}
+

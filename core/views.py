@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 from item.models import *
 from .forms import SignupForm
+from payment.models import Wallet
 # Create your views here.
 
 def index(request):
@@ -27,7 +28,8 @@ def signup(request):
         form = SignupForm(request.POST)
         print(form.data)  
         if form.is_valid():
-            form.save()
+            user = form.save()
+            Wallet.objects.create(user=user)
             
             return redirect('/login/')
     else:
