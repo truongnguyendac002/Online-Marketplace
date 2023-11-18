@@ -13,7 +13,6 @@ def newConversation(request,item_pk):
         return redirect('dashboard:index')
     conversations = Conversation.objects.filter(item=item).filter(member__in = [request.user.id])
     
-    
     if conversations:
         return redirect('conversation:detail', conversation_pk = conversations.first().id) 
     if request.method == 'POST':

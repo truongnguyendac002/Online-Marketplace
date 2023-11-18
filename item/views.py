@@ -116,3 +116,4 @@ def delete_from_wishlist(request, pk):
     return render(request,'item/wishlist.html',context={
         'items':items
     })
+    
