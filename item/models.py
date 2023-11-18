@@ -23,3 +23,7 @@ class Item(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+class Wishlist(models.Model):
+    items = models.ManyToManyField(Item, related_name='wishlists')
+    created_by = models.ForeignKey(User, related_name='wishlists', on_delete=models.CASCADE)

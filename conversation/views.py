@@ -45,7 +45,6 @@ def inbox(request):
     
     return render(request, 'conversation/inbox.html', context={
         'conversations' : conversations,
-        
     })
     
 @login_required

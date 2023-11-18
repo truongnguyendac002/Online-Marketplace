@@ -27,9 +27,14 @@ def detail(request,pk):
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category = item.category, is_sold = False).exclude(pk=pk)[0:3]
     
+    is_in_wishlist = False
+    wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
+    is_in_wishlist = item in wishlist.items.all()
+    
     return render(request, 'item/detail.html', context= {
         'item': item,
-        'related_items': related_items
+        'related_items': related_items,
+        'is_in_wishlist': is_in_wishlist,
     })
     
 @login_required
@@ -76,3 +81,26 @@ def edit(request, pk):
     })
     
     
+@login_required
+def wishlist(request):
+    wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
+    
+    items = wishlist.items.all()
+    
+    return render(request, 'item/wishlist.html', {
+        'items': items
+    })
+
+    
+@login_required
+def add_wishlist(request, pk):
+    item = Item.objects.get(pk = pk)
+    wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
+    
+    if item not in wishlist.items.all():
+        wishlist.items.add(item)
+    items = wishlist.items.all()
+    
+    return render(request,'item/wishlist.html',context={
+        'items':items
+    })

@@ -25,6 +25,13 @@
             </div>
         {% else %}
             <a href="{% url "conversation:new" item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Contact seller</a>
+
+            {% if is_in_wish_list %}
+            <a href="{% url "item:add_wishlist" item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-red-500 text-white hover:bg-red-700 rounded-xl">Delete from wishlist</a>
+            {% else %}
+                <a href="{% url "item:add_wishlist" item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-yellow-500 text-white hover:bg-yellow-700 rounded-xl">Add to wishlist</a>
+            {% endif %}
+
         {% endif %}
     </div>
 </div>
