@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block title %}Payment{% endblock title %}
+
+
+{% block content %}
+    <div class="flex">
+        <div >
+            <h1 class="pt-4"><strong>{{wallet}} :</strong>  {{wallet.balance}} $</h1>
+        </div>
+        <div >
+            <a href="{% url "payment:confirm" wallet.id %}" class="inline-block ml-4 mb-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Add Funds</a>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        {% for transaction in transactions %}
+            <div class="p-6 flex {% if transaction.buyer == request.user %}bg-red-100{% else %}bg-blue-100{% endif %} rounded-xl">
+                <div>
+                    <img class="w-20 rounded-xl mr-4" src="{{transaction.item.image.url}}" alt="">
+                </div>
+                <div>
+                    <p class="mb-4"><strong> {{ transaction.item }}</strong> | Seller: {{ transaction.seller }} <strong>&</strong> Buyer: {{transaction.buyer}} </p>
+                    <p>{{ transaction.amount }} $</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
