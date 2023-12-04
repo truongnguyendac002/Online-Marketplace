@@ -13,3 +13,4 @@ My e-commerce project is a web platform designed to help sellers easily upload a
 
 ## Screenshots
 
+![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/2010ac59-b780-471c-a913-067536e9996d)
