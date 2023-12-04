@@ -1,39 +1,15 @@
 # Online-Marketplace
 
-Brief introduction about the project.
-
-## Motivation
-
-Why you built this project.
+My e-commerce project is a web platform designed to help sellers easily upload and showcase their products, while buyers can browse, view, and purchase items online.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
-
-## Tech Stack
-
-- Technology 1
-- Technology 2
-- Technology 3
-
-## Installation and Setup
-
-Instructions on how to install and run your project.
-
-## Usage
-
-Instructions on how to use your project.
+- User Authentication
+- Item Posting
+- Item Browsing
+- Wishlist
+- Payment
+- Inbox seller
 
 ## Screenshots
 
-Include screenshots of your project.
-
-## Contribution
-
-Guidelines for contributing to your project.
-
-## Contact Information
-
-Your contact information.
