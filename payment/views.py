@@ -23,7 +23,7 @@ def detail(request):
 def buy(request, pk):
     item = Item.objects.get(pk=pk)
     wallet = Wallet.objects.get(user = request.user)
-    
+    short_of = item.price - wallet.balance
     if wallet.balance >= item.price:
         transaction = Transaction.objects.create(
             buyer = request.user,
@@ -33,16 +33,17 @@ def buy(request, pk):
         
         return redirect( 'payment:detail')
     else:
-        message = "You're short of "+ str(item.price - wallet.balance) +"$ to purchase this item !\nWant to add 100 $ into your wallet ?"
+        message = "You're short of "+ str(short_of) +"$ to purchase this item !\nWant to add "+ str(short_of) +" $ into your wallet ?"
         return render(request, 'payment/confirm.html', context={
         'wallet' : wallet,
-        'message': message
+        'message': message,
+        'short_of': int(short_of) + (short_of > int(short_of))
     })
 
 @login_required
-def accept_funds(request,pk):
+def accept_funds(request,pk, short_of):
     wallet = Wallet.objects.get(pk=pk)
-    wallet.balance += 100
+    wallet.balance += short_of
     wallet.save()
     
     return redirect( 'payment:detail')
@@ -56,5 +57,6 @@ def confirm(request,pk):
     wallet = Wallet.objects.get(pk=pk)
     return render(request, 'payment/confirm.html', context={
         'wallet' : wallet,
-        'message': 'Add 100 $ into your wallet ?'
+        'message': 'Add 100 $ into your wallet ?',
+        'short_of': 100
     })
