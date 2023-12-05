@@ -27,5 +27,8 @@ My e-commerce project is a web platform designed to help sellers easily upload a
 ### Dashboard:
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/c92c93dc-f8e6-4a8b-93af-ca502a49cb9d)
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/f13025d1-0149-461b-9c94-bb1d8514a54f)
+### Log in:
+![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/d432bbdc-49f9-4e46-8854-a68303723a63)
+### Sign up:
+![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/1631df9d-221d-4474-8455-12b25103e322)
 
-![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/80f04de5-9c47-48e0-bc07-1dd9164dbf4e)
