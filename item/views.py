@@ -26,9 +26,11 @@ def items(request):
 def detail(request,pk):
     item = get_object_or_404(Item, pk=pk)
     related_items = Item.objects.filter(category = item.category, is_sold = False).exclude(pk=pk)[0:3]
+    is_in_wishlist = False
     
-    wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
-    is_in_wishlist = wishlist.items.filter(pk=pk).exists()
+    if request.user.is_authenticated :
+        wishlist, created = Wishlist.objects.get_or_create(created_by=request.user)
+        is_in_wishlist = wishlist.items.filter(pk=pk).exists()
     
     return render(request, 'item/detail.html', context= {
         'item': item,

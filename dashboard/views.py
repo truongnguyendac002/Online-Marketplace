@@ -8,7 +8,7 @@ from item.models import Item
 @login_required
 def index(request):
     new_items = Item.objects.filter(created_by = request.user).filter(is_sold = False)
-    sold_items = Item.objects.filter(created_by = request.user).filter(is_sold = False)
+    sold_items = Item.objects.filter(created_by = request.user).filter(is_sold = True)
     
     return render(request, 'dashboard/index.html', context={
         'new_items': new_items,

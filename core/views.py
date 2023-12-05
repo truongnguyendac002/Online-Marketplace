@@ -7,10 +7,11 @@ from payment.models import Wallet
 
 def index(request):
     items = Item.objects.filter(is_sold = False)[0:6]
-    category = Category.objects.all()
-    
+    categories = Category.objects.all()
+    for category in categories:
+        category.unsold_count = Item.objects.filter(category = category, is_sold = False).count()
     return render(request, 'core/index.html', {
-        'categories' : category,
+        'categories' : categories,
         'items' : items,
         
     })
