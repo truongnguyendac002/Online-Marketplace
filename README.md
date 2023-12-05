@@ -12,11 +12,11 @@ My e-commerce project is a web platform designed to help sellers easily upload a
 - Inbox seller
 
 ## Screenshots
-
+### Home page
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/2010ac59-b780-471c-a913-067536e9996d)
-
+### Item description
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/506db6ef-3691-46ad-87bc-1ddebade7de3)
-
+### Payment
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/d04bcb60-82d7-4493-b286-a6616e9ca86e)
 
 ![image](https://github.com/truongnguyendac002/Online-Marketplace/assets/88220511/cac43d4f-be15-413f-b53f-821cc21f9452)
